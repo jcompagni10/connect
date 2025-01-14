@@ -3,6 +3,7 @@ package keeper
 import (
 	"context"
 	"fmt"
+	"sort"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
@@ -33,9 +34,19 @@ func (q queryServerImpl) MarketMap(goCtx context.Context, req *types.MarketMapRe
 	}
 
 	lastUpdated, err := q.k.GetLastUpdated(ctx)
+
+	sortedMarkets := make(map[string]types.Market, len(markets))
+	keys := make([]string, 0, len(markets))
+	for key := range markets {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys) // Sort the keys alphabetically
+	for _, key := range keys {
+		sortedMarkets[key] = markets[key]
+	}
 	return &types.MarketMapResponse{
 			MarketMap: types.MarketMap{
-				Markets: markets,
+				Markets: sortedMarkets,
 			},
 
 			LastUpdated: lastUpdated,
