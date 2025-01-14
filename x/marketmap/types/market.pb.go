@@ -271,17 +271,10 @@ func (*MarketMap) Descriptor() ([]byte, []int) {
 func (m *MarketMap) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MarketMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MarketMap.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
+func (m *MarketMap) XXX_Marshal(b []byte, _deterministic bool) ([]byte, error) {
+
+		return xxx_messageInfo_MarketMap.Marshal(b, m, true)
+
 }
 func (m *MarketMap) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_MarketMap.Merge(m, src)
