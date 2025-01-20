@@ -1,6 +1,7 @@
 module github.com/skip-mev/slinky
 
 go 1.22.7
+toolchain go1.23.5
 
 require (
 	cosmossdk.io/api v0.7.5
@@ -42,7 +43,7 @@ require (
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.9.0
-	github.com/vektra/mockery/v2 v2.44.1
+	github.com/vektra/mockery/v2 v2.51.1
 	go.uber.org/zap v1.27.0
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56
 	golang.org/x/net v0.30.0
